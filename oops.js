@@ -1,12 +1,13 @@
-var x = 1;
+function outerFunction() {
+  var innerVariable = "I'm sort of a secret.";
 
-function myFunction() {
-  y = 2;
-  console.log(x);
+  return function innerScope() {
+    var inaccessible = "Nothing can touch me.";
+
+    return innerVariable;
+  }
 }
 
-myFunction(); // 1
+var myScope = outerFunction();
 
-console.log(y); // 2
-
-console.log(x); // 1
+myScope
